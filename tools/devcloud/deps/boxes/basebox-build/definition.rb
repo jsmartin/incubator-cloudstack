@@ -28,9 +28,13 @@ Veewee::Session.declare({
   :iso_md5 => '32184a83c8b5e6031e1264e5c499bc03',
   :iso_download_timeout => "1000",
   :boot_wait => "4",
-  :ioapic => "on",
-  :nestedpaging => "on",
-  :hwvirtex => "on",
+  :virtualbox => { 
+    :vm_options => [
+      "ioapic" => "on",
+      "hwvirtex" => "on",
+      "nestedpaging" => "on" 
+    ]
+  },
   :boot_cmd_sequence => [
     '<Esc><Esc><Enter>',
     '/install/vmlinuz noapic preseed/url=http://%IP%:%PORT%/preseed.cfg ',
