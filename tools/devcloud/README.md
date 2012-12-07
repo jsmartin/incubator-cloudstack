@@ -48,6 +48,19 @@ If you get a vagrant error, at that point, try:
 
 	source .rvmrc
 	vagrant up
+
+If you want to compile cloudstack in the devcloud vm:
+
+	vim puppet/modules/devcloud/manifests/params.pp
+
+and set
+
+	$build_cloudstack = true
+	
+alternately, if you do not want to build cloudstack in the devcloud vm, set:
+
+	$build_cloudstack = false
+
 	
 It will now bring up the devcloud vm for this first time.  Note that it will attempt to download the SSVM and CPVM templates so it will take a long time to launch initially.  It will also git clone the cloudstack repository and attempt to build an launch it. 
 
